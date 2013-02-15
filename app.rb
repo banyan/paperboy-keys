@@ -18,6 +18,8 @@ get '/' do
   end
 
   html = ""
+  html << '<html>'
+  html << '<a href="https://github.com/banyan/paperboy-keys><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>'
   accounts.shuffle.each do |account|
     account_path    = "/tmp/keys/paperboy-keys-#{account}.txt"
     account_key_url = "https://github.com/#{account}.keys"
@@ -39,5 +41,6 @@ get '/' do
     html << keys
     html << "</div>"
   end
+  html << '</html>'
   html
 end
